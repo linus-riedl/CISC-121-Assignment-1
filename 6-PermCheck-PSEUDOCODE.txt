@@ -1,0 +1,10 @@
+FUNCTION solution(array A):
+    LET found = set() # initialize empty set to store found integers
+    len = LENGTH(A) # determine length of input array
+
+    FOR a IN A:
+        IF a>len OR a<0 OR a IN FOUND: # if the element is not in the range of 1 to n, or it appears more than once
+            RETURN 0 # not a permutation
+        ADD a TO found: # if it could still be a permuation, update the found array
+    
+    RETURN 1 # if the entire loop passed and never returned 0, it is a permutation
