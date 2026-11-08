@@ -1,0 +1,6 @@
+FUNCTION solution(array A):
+    LET A = set(A) # convert the input array to a set
+    
+    FOR i IN (1,2,3,..., LENGTH(A)+1): # answer must be between 1 and n+1
+        IF i NOT IN A: # if the number is not in the set, it must be the lowest possible since we are increase by 1, starting at 1
+            RETURN i # so, return the number
