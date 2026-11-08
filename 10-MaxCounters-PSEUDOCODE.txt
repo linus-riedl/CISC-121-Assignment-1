@@ -1,0 +1,20 @@
+# the solution takes an integer N and array A as input, and outputs an array (of length N)
+FUNCTION solution(INTEGER N, ARRAY A) -> ARRAY:
+    LET maximum = 0
+    LET minimum = 0
+
+    FOR a IN A:
+        IF a EQUALS N+1: # N+1 is the value that causes all counters to be updated
+            # instead of updating all counters (which would take quadratic time), just update the 'min' variable to equal 'max'
+            minimum=maximum
+        ELSE:
+            LET index=a-1 # a-1 because index of array starts at 0, we are given 1<a<N
+            
+            # update the counter to the minimum if it was under, then add 1 to it
+            counters[index] = MAX(counters[index], minimum) + 1
+
+            # update the maximum if this counter has passed it
+            maximum = MAX(maximum, counters[index])
+
+    # For each counter, update it if it is under the minimum, otherwise keep it the same, then return the array of counters
+    RETURN [MAX(counter, minimum) FOR EACH counter IN counters]
