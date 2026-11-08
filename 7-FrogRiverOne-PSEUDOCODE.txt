@@ -1,0 +1,17 @@
+FUNCTION solution(INTEGER X, ARRAY A):
+    # initialize empty set and counter
+    LET found = set()
+    LET counter = 0
+
+    # iterate through each index in the input array
+    FOR i IN (0,1,2,...,LENGTH(A)):
+        LET leaf = A[i] # find the position of the leaf at index i
+        IF leaf NOT IN found:
+            ADD leaf TO found
+            ADD 1 to counter # update the array and counter to reflect that this new position has been found
+        IF counter EQUALS X:
+            # all positions have been found, so return the index
+            RETURN i
+    
+    # if no solution is ever found, return -1
+    RETURN -1

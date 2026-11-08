@@ -1,6 +1,6 @@
 FUNCTION solution(array A):
     LET found = set() # initialize empty set to store found integers
-    len = LENGTH(A) # determine length of input array
+    LET len = LENGTH(A) # determine length of input array
 
     FOR a IN A:
         IF a>len OR a<0 OR a IN FOUND: # if the element is not in the range of 1 to n, or it appears more than once
