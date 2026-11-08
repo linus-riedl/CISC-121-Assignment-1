@@ -1,0 +1,16 @@
+FUNCTION SOLUTION(array A):
+    # initialize 2 separate counters
+    LET oncoming = 0
+    LET total = 0
+
+    # iterate through all elements in the input array
+    FOR direction IN A:
+        IF direction EQUALS 1:
+            ADD oncoming TO total # this car will pass all oncoming cars that were ahead of it
+        ELSE:
+            ADD 1 to oncoming # update the oncoming counter
+        IF total > 1,000,000,000:
+            RETURN -1 # checking this condition was stated in the problem
+    
+    # return total number of passing cars after the loop is completed.
+    RETURN total
